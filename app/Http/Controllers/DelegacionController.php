@@ -82,4 +82,10 @@ class DelegacionController extends Controller
     {
         //
     }
+
+    public function delegaciones($id)
+    {
+        return Delegacion::where('region_id', $id)->get();
+    }
+
 }

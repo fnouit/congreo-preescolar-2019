@@ -64,7 +64,7 @@
                     <ul class="navbar-nav mr-auto">                        
                         <li class="nav-item"><a data-scroll class="nav-link active" href="{{ route('inicio')}}">Inicio</a></li>
                         <li class="nav-item"><a data-scroll class="nav-link" href="{{ route('home')}}">Usuarios</a></li>
-                        <li class="nav-item"><a data-scroll class="nav-link" href="/#buscar">Buscar</a></li>
+                        <li class="nav-item"><a data-scroll class="nav-link" href="{{ route('buscar')}}">Buscar</a></li>
                     </ul>
                     <ul class="navbar-nav ml-auto">                        
                        <li class="nav-item dropdown">
@@ -89,10 +89,7 @@
             </div>
         </nav>
     @endguest
-
-
-
-        @yield('banner')
+    @yield('banner')
 
 
 

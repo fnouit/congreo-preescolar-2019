@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\Region;
 
 class RegistrarUsuarioController extends Controller
 {
@@ -15,8 +16,30 @@ class RegistrarUsuarioController extends Controller
      */
     public function index()
     {
-        return view ('index');
+        return view ('congreso-preescolar.index');
     }    
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $regiones = Region::all();
+        return view ('congreso-preescolar.registro')->with(compact('regiones'));
+    }
+
+    public function talleres()
+    {
+        return view ('congreso-preescolar.talleres');
+    }
+
+    public function verificacion()
+    {
+        return view ('congreso-preescolar.verificacion');
+    }
+
 
     /**
      * Store a newly created resource in storage.
