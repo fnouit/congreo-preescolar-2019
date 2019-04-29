@@ -49,6 +49,7 @@ class RegistrarUsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        
         // return "aquí se almacena la información";
         $mensaje = [
             'nombre.required' => 'Es necesario ingresar un nombre para el registro',
@@ -57,7 +58,7 @@ class RegistrarUsuarioController extends Controller
             'correo.unique'=>'El correo electrónico que proporciono ya ha sido registrado',
             'rfc.required'=>'Su RFC es necesario',
             'numero_personal.required'=>'Su número personal es necesario para el registro',
-            'delegacion.required'=>'Es necesario saber a qué delegación perteneces ',
+            // 'delegacion.required'=>'Es necesario saber a qué delegación perteneces ',
             'numero_personal.unique'=>'El numero personal ya ha sido registrado'
         ];
         $reglas = [
@@ -66,10 +67,12 @@ class RegistrarUsuarioController extends Controller
             'correo' => 'required|unique:usuarios,correo',            
             'rfc' => 'required',
             'numero_personal'  => 'required|unique:usuarios,num_personal',
-            'delegacion' => 'required'             
+            // 'delegacion' => 'required'             
         ];
 
         /* 'correo' => 'required|email|unique:users', */
+
+
 
         $this->validate( $request, $reglas, $mensaje );
 
@@ -89,9 +92,12 @@ class RegistrarUsuarioController extends Controller
         $usuario->zona_e = strtoupper($request->zona_escolar);
         $usuario->clave_ct = strtoupper($request->ct);
         $usuario->codigo_confirmacion = strtoupper(str_random(8));
+        $usuario->agremiado = strtoupper($request->radio);
+        // $usuario->delegacion = strtoupper($request->delegaciones);
+        $usuario->delegacion2 = strtoupper($request->delegacion2);
 
         // $usuario->nombre = strtoupper($request->nombre);
-        //dd($usuario);
+        // dd($usuario);
 
         $usuario->save();  
 

@@ -74,13 +74,15 @@
 
         <div class="row" align="left">
             <div class="col-md-12 form-group">
-                <div class="form-check ">
-                    <input type="radio" class="form-check-input " id="check-radio1" name="radio" checked>
-                    <label class="form-check-label" for="check-radio1">Sí, soy agremiado</label>
+                <div class="form-check ">                    
+                    <label class="form-check-label" for="check-radio1">
+                        <input type="radio" class="form-check-input " id="check-radio1" name="radio" checked value="SI"> SOY AGREMIADO
+                    </label>
                 </div>
-                <div class="form-check ">
-                    <input type="radio" class="form-check-input  " id="check-radio2" name="radio">
-                    <label class="form-check-label" for="check-radio2">No, soy agremiado</label>
+                <div class="form-check ">                    
+                    <label class="form-check-label" for="check-radio2">
+                        <input type="radio" class="form-check-input  " id="check-radio2" name="radio"  value="NO"> NO SOY AGREMIADO
+                    </label>
                 </div>                    
             </div>
         </div><hr>
@@ -90,22 +92,27 @@
 
         <div class="row">
             <div class="col-sm-6 form-group">
-                <label for="region">SELECCIONA REGIÓN</label>
+                <label for="region">¿A QUE REGIÓN PERTENECES?</label>
                 <select class="custom-select form-control" name="region" id="region" >
                     <option disabled selected>SELECCIONA LA REGIÓN</option>
                     @foreach ($regiones as $key => $region)
-                        <option value="{{$region->id}}">{{$key+1}} - {{$region->numero}}&nbsp &nbsp{{$region->sede}}</option>
+                        <option value="{{$region->id}}">{{$key+1}} - {{$region->nombre}}&nbsp &nbsp{{$region->sede}}</option>
                     @endforeach
                 </select>                 
             </div>
-            <div class="col-sm-3 form-group">
-                <label for="delegaciones">SELECCIONA DELEGACIÓN</label>
-                <select class="custom-select form-control" name="delegaciones" id="delegaciones" >
+            <div class="col-sm-6 form-group">
+                <label for="delegacion">¿CUÁL ES SU DELEGACIÓN?</label>
+                <select class="custom-select form-control" name="delegacion" id="delegacion" >
                 </select>                 
             </div>
-            <div class="col-sm-3 form-group">
-                <label for="sede">SEDE DELEGACIONAL</label>
-                <input type="text" id="sede" name="sede" class="form-control" value="{{old('sede')}}" disabled>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 form-group ">
+                <label for="delegacion_opcional">¿NO ENCUENTRAS TU DELEGACIÓN?</label>
+                <span><small>Ingresa manualmente tu Delegación (opcional)</small></span>
+                <input type="text" name="delegacion2" id="delegacion2" class="form-control" value="{{old('delegacion2')}}" style='text-transform:uppercase'>
             </div>
         </div>
 
@@ -141,11 +148,11 @@
         var region_id = $(this).val();
         $.get('/regiones/'+region_id+'/delegaciones', function(data){
             
-            $('#delegaciones').empty();
+            $('#delegacion').empty();
 
-            $('#delegaciones').append('<option disabled selected>SELECCIONA DELEGACIÓN</option>');
+            $('#delegacion').append('<option disabled selected>SELECCIONA DELEGACIÓN</option>');
             for (var i = 0; i < data.length; ++i)
-                $('#delegaciones').append('<option value="'+ data[i].id +'">' + data[i].numero + " - " +data[i].sede +'</option>');
+                $('#delegacion').append('<option value="'+ data[i].numero +'">' + data[i].numero + " - " +data[i].sede +'</option>');
         return;
         });
     }
