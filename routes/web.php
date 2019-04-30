@@ -23,6 +23,12 @@ Route::middleware(['auth','admin'])->group(function()
     Route::put('usuario/{id}/editar','Admin\UsuarioController@update')->name('actualizar');
     Route::delete('/usuario/{id}', 'Admin\UsuarioController@destroy')->name('eliminar'); 
     Route::get('exportar-archivo/{type}', 'Admin\UsuarioController@exportar')->name('exportar_archivo');
+
+    #Creación de talleres para Congreso de Preescolar 2019
+    Route::get('/congreso-preescolar-2019/talleres','TallerController@index')->name('talleres');
+    Route::get('/congreso-preescolar-2019/nuevo_taller', 'TallerController@create')->name('registrar_taller'); # página para registrar nuevo taller
+    Route::post('/congreso-preescolar-2019/nuevo_taller', 'TallerController@store')->name('enviar_taller'); # almacena la información del taller
+
 });
 
 
@@ -33,12 +39,17 @@ Route::middleware(['auth','admin'])->group(function()
 // Route::get('/privacidad', 'RegistrarUsuarioController@privacidad')->name('privacidad'); # Página de privacidad
 
 // Registro Congreso Preescolar
+
 Route::get('/','RegistrarUsuarioController@index')->name('inicio');
-Route::get('/congreso-preescolar-2019/registro', 'RegistrarUsuarioController@create')->name('registro'); # Registrar usuarios
-Route::post('/congreso-preescolar-2019/registro', 'RegistrarUsuarioController@store')->name('registro'); # Almacenar la información
-Route::get('/congreso-preescolar-2019/talleres', 'RegistrarUsuarioController@talleres')->name('talleres'); # Página para mostrar los talleres
-Route::get('/congreso-preescolar-2019/verificacion', 'RegistrarUsuarioController@verificacion')->name('verificacion'); # Página para verificar si estas registrado
-Route::get('/congreso-preescolar-2019/buscar', 'RegistrarUsuarioController@buscar')->name('buscar'); # Buscar registro
-Route::get('/congreso-preescolar-2019/privacidad', 'RegistrarUsuarioController@privacidad')->name('privacidad'); # Página de privacidad
+Route::group(['prefix'=>'congreso-preescolar-2019'], function()
+{
+    Route::get('/mostrar_talleres','RegistrarUsuarioController@talleres')->name('mostrar_talleres'); # Página donde se muestran todos los talleres
+    Route::get('/taller','RegistrarUsuarioController@taller')->name('taller'); # Página donde se muestran todos los talleres
+    Route::post('/registrarse', 'RegistrarUsuarioController@create')->name('registrarse');  # Registrar usuarios
+    Route::post('/registro', 'RegistrarUsuarioController@store')->name('enviar_registro'); # Almacenar la información
+    Route::get('/verificacion', 'RegistrarUsuarioController@verificacion')->name('verificacion'); # Página para verificar si estas registrado
+    Route::get('/buscar', 'RegistrarUsuarioController@buscar')->name('buscar'); # Buscar registro
+    Route::get('/privacidad', 'RegistrarUsuarioController@privacidad')->name('privacidad'); # Página de privacidad
+});
 
 Route::get('/regiones/{id}/delegaciones','DelegacionController@delegaciones');

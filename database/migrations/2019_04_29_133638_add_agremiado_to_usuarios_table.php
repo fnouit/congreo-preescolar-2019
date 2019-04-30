@@ -16,6 +16,10 @@ class AddAgremiadoToUsuariosTable extends Migration
         Schema::table('usuarios', function (Blueprint $table) {
             $table->string('agremiado',128)->after('clave_ct');
             $table->string('delegacion2',128)->after('codigo_confirmacion');
+
+            $table->unsignedInteger('taller_id');
+            $table->foreign('taller_id')->references('id')->on('tallers');
+            
         });
     }
 

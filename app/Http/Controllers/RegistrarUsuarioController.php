@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuario;
 use App\Region;
+use App\Taller;
 
 class RegistrarUsuarioController extends Controller
 {
@@ -24,15 +25,26 @@ class RegistrarUsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $id = $request->seleccion_taller;
+        // $taller = Taller::firstOrFail($id);
+        
         $regiones = Region::all();
-        return view ('congreso-preescolar.registro')->with(compact('regiones'));
+        return view ('congreso-preescolar.registro')->with(compact('regiones','id'));
     }
+
+    public function taller()
+    {
+        $talleres = Taller::all();
+        return view ('congreso-preescolar.seleccion_taller')->with(compact('talleres'));
+    }
+
 
     public function talleres()
     {
-        return view ('congreso-preescolar.talleres');
+        $talleres = Taller::all();
+        return view ('congreso-preescolar.talleres')->with(compact('talleres'));
     }
 
     public function verificacion()
@@ -93,8 +105,8 @@ class RegistrarUsuarioController extends Controller
         $usuario->clave_ct = strtoupper($request->ct);
         $usuario->codigo_confirmacion = strtoupper(str_random(8));
         $usuario->agremiado = strtoupper($request->radio);
-        // $usuario->delegacion = strtoupper($request->delegaciones);
         $usuario->delegacion2 = strtoupper($request->delegacion2);
+        $usuario->taller_id = $request->taller;
 
         // $usuario->nombre = strtoupper($request->nombre);
         // dd($usuario);

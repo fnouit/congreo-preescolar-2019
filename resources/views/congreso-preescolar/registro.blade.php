@@ -15,8 +15,9 @@
     @endif
 
 
-    <form action="{{ route('registro') }}" method="post">
+    <form action="{{ route('enviar_registro') }}" method="post">
     {{ csrf_field() }} 
+        <input name="taller" type="hidden" value="{{$id}}">
         <p class="lead">Datos Personales </p>
         <div class="row">
             <div class="col-sm-6 form-group">      

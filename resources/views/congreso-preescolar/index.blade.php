@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('titulo','Registro')
+@section('titulo','Inicio')
 @section('container')
 
 
@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4 mb30">
-                    <a href="{{route('registro')}}">
+                    <a href="{{route('taller')}}">
                         <img src="{{asset('images/img1.jpg')}}" alt="" class="img-fluid mb20">
                         <h4>Registro al Congreso</h4>
                     </a>
@@ -42,7 +42,7 @@
                     </p>
                 </div>
                 <div class="col-md-4 mb30">
-                    <a href="{{route('talleres')}}">
+                    <a href="{{route('mostrar_talleres')}}">
                         <img src="{{asset('images/img5.jpg')}}" alt="" class="img-fluid mb20">
                         <h4>¿Cuales son los Talleres?</h4>
                     </a>
@@ -63,7 +63,7 @@
         </div>
 
     @section('banner2')
-        <a href="{{route('registro')}}" class="btn btn-block btn-primary pt40 pb40 btn-lg">Regístrate antes del 25 de mayo y participa con nosotros en esta gran experiencia.</a>        
+        <a href="{{route('taller')}}" class="btn btn-block btn-primary pt40 pb40 btn-lg">Regístrate antes del 25 de mayo y participa con nosotros en esta gran experiencia.</a>        
     @endsection
 
 @stop
