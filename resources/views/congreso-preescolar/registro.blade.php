@@ -17,7 +17,24 @@
 
     <form action="{{ route('enviar_registro') }}" method="post">
     {{ csrf_field() }} 
-        <input name="taller" type="hidden" value="{{$id}}">
+
+        <p class="lead">Selección de Taller </p>
+        <div class="row">
+            <div class="col-sm-12 form-group">      
+                <label for="seleccion_taller">SELECCIONA DEL LISTADO QUE A CONTINUACION TE MOSTRAMOS AL QUE DESEAS ASISTIR.</label>
+                <select id="seleccion_taller" name="seleccion_taller" class="form-control">                            
+                    <option value="" selected disabled hidden>TALLERES DISPONIBLES</option>    
+                    @foreach($talleres as $key => $taller)    
+                        {{$registro = App\Usuario::where('taller_id',$taller->id)->count()}}
+                        @if($registro <= 5)
+                            <option value="{{$taller->id}}" style="text-transform: uppercase;">Taller {{$key+1}} - {{$taller->titulo}}</option>
+                        @endif
+                    @endforeach                    
+                </select>
+                <span>Si el taller no se encuentra es por que ha superado el limite de registros. </span>
+            </div>
+        </div>                           
+
         <p class="lead">Datos Personales </p>
         <div class="row">
             <div class="col-sm-6 form-group">      
@@ -44,7 +61,7 @@
                 <input id="rfc" type="text" name="rfc" class="form-control" style='text-transform:uppercase' placeholder="*" value="{{old('rfc')}}" >
             </div>
             <div class="col-sm-2  form-group">
-            <label for="genero">GENERO</label>          
+                <label for="genero">GENERO</label>          
                 <select id="genero" name="genero" class="form-control">                            
                     <option></option>                    
                     <option value="OTRO">SIN ESPECIFICAR</option>                    

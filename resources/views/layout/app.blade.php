@@ -47,7 +47,8 @@
 
                     <ul class="navbar-nav mr-auto">                        
                         <li class="nav-item"><a data-scroll class="nav-link active" href="{{route('inicio')}}">Inicio</a></li>
-                        <li class="nav-item"><a data-scroll class="nav-link" href="/#buscar">Buscar</a></li>
+                        <li class="nav-item"><a data-scroll class="nav-link" href="{{route('mostrar_talleres')}}">Talleres</a></li>
+                        <li class="nav-item"><a data-scroll class="nav-link" href="{{route('verificacion')}}">Buscar</a></li>
                     </ul>
                 </div>
             </div>

@@ -35,7 +35,7 @@
         </div>
 
     @section('banner2')
-        <a href="{{route('registro')}}" class="btn btn-block btn-primary pt40 pb40 btn-lg">Regístrate antes del 25 de mayo y participa con nosotros en esta gran experiencia.</a>        
+        <a href="{{route('registrarse')}}" class="btn btn-block btn-primary pt40 pb40 btn-lg">Regístrate antes del 25 de mayo y participa con nosotros en esta gran experiencia.</a>        
     @endsection
 
 @stop

@@ -8,18 +8,20 @@
             @foreach($talleres as $key => $taller)
             <div class="col-md-4 mb30">
                 <div class="pricing-card">
-                    <h4><span class="float-right text-primary font700">25 <sub> / Registros de 70</sub></span>
-                        Taller {{$key+1}}
-                    </h4>
                     <div class="row gallery-row">                    
                         <a href="../images/talleres/{{$taller->imagen_taller}}" class="gallery-item">
                             <img src="../images/talleres/{{$taller->imagen_taller}}" alt="" class="img-fluid">
                         </a>                    
                     </div>
-                    <h6 class="pt20 mb20">{{$taller->titulo}}</h6>
-                    <p>{{$taller->descripcion}}.</p>  
-                    <input name="seleccion_taller" type="hidden" value="{{$taller->id}}">                 
-                    <a href="{{route('taller')}}" class="btn btn-outline-secondary">Regístrate</a> 
+                    <h6 class="pt20 mb10">
+                        Taller {{$key+1}}
+                        <span style="color:#FFA500; font-size: 0.8rem;" class="float-right text-primary">
+                            Total de Registros <strong>{{$registros = App\Usuario::where('taller_id',$taller->id)->count()}}</strong>  / de 5
+                        </span>    
+                    </h6>
+                    <h6 class="pt20 ">{{$taller->titulo}}</h6>
+                    <p>{{$taller->descripcion}}</p>  
+                    <a href="{{route('registrarse')}}" class="btn btn-outline-secondary">Regístrate</a> 
                 </div>
             </div>
             @endforeach

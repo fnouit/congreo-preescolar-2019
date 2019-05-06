@@ -33,7 +33,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4 mb30">
-                    <a href="{{route('taller')}}">
+                    <a href="{{route('registrarse')}}">
                         <img src="{{asset('images/img1.jpg')}}" alt="" class="img-fluid mb20">
                         <h4>Registro al Congreso</h4>
                     </a>

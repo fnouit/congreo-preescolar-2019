@@ -25,25 +25,25 @@ class RegistrarUsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $id = $request->seleccion_taller;
-        // $taller = Taller::firstOrFail($id);
-        
         $regiones = Region::all();
-        return view ('congreso-preescolar.registro')->with(compact('regiones','id'));
+        $talleres = Taller::all();
+
+        return view ('congreso-preescolar.registro')->with(compact('regiones','talleres'));
     }
 
-    public function taller()
+/*     public function taller()
     {
         $talleres = Taller::all();
         return view ('congreso-preescolar.seleccion_taller')->with(compact('talleres'));
-    }
+    } */
 
 
     public function talleres()
     {
         $talleres = Taller::all();
+        
         return view ('congreso-preescolar.talleres')->with(compact('talleres'));
     }
 
@@ -61,7 +61,9 @@ class RegistrarUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $registros = Usuario::where('taller_id',$request->seleccion_taller)->count();
+
+        // return $registros;
         // return "aquí se almacena la información";
         $mensaje = [
             'nombre.required' => 'Es necesario ingresar un nombre para el registro',
@@ -106,7 +108,7 @@ class RegistrarUsuarioController extends Controller
         $usuario->codigo_confirmacion = strtoupper(str_random(8));
         $usuario->agremiado = strtoupper($request->radio);
         $usuario->delegacion2 = strtoupper($request->delegacion2);
-        $usuario->taller_id = $request->taller;
+        $usuario->taller_id = $request->seleccion_taller;
 
         // $usuario->nombre = strtoupper($request->nombre);
         // dd($usuario);
