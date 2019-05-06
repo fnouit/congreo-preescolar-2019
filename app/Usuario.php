@@ -26,13 +26,14 @@ class Usuario extends Model
 
     // Query Scope
 
-    public function scopeBusqueda($query,$num_personal)
+    public function scopeBusqueda($query,$num_personal='')
     {
-        if($num_personal)
+/*         if($num_personal)
             return $query->where('num_personal', $num_personal);
         elseif ($num_personal) {
             return "SIN REGISTRO";
         }
-            
+ */            
+        return $query->where('num_personal', $num_personal);
     }
 }
