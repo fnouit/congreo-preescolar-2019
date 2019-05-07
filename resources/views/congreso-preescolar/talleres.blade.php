@@ -4,26 +4,29 @@
 
     <div class="container pt20 pb60">
         <h3 class="font300 mb20  h2" align="center"><strong><span class="text-primary">Talleres</span></strong></h3>
+        <p class="lead " align="center">El registro a los taller tienen un cupo máximo de 60 personas.</p>
         <div class="row">
             @foreach($talleres as $key => $taller)
-            <div class="col-md-4 mb30">
-                <div class="pricing-card">
-                    <div class="row gallery-row">                    
-                        <a href="../images/talleres/{{$taller->imagen_taller}}" class="gallery-item">
-                            <img src="../images/talleres/{{$taller->imagen_taller}}" alt="" class="img-fluid">
-                        </a>                    
+                @if(App\Usuario::where('taller_id',$taller->id)->count() < 3)
+                    <div class="col-md-4 mb30">
+                        <div class="pricing-card">               
+                            <div class="row gallery-row">                    
+                                <a href="../images/talleres/{{$taller->imagen_taller}}" class="gallery-item">
+                                    <img src="../images/talleres/{{$taller->imagen_taller}}" alt="" class="img-fluid">
+                                </a>                    
+                            </div>
+                            <h6 class="pt20 mb10">
+                                Taller {{$key+1}}
+                                <span style="color:#FFA500; font-size: 0.8rem;" class="float-right text-primary">
+                                    Total de Registros <strong>{{$registros = App\Usuario::where('taller_id',$taller->id)->count()}}</strong>  / de 5
+                                </span>    
+                            </h6>
+                            <h6 class="pt20 ">{{$taller->titulo}}</h6>
+                            <p  style="text-transform: uppercase;">{{$taller->ponente}} </p>  
+                            <a href="{{route('registrarse')}}" class="btn btn-outline-secondary">Regístrate</a> 
+                        </div>
                     </div>
-                    <h6 class="pt20 mb10">
-                        Taller {{$key+1}}
-                        <span style="color:#FFA500; font-size: 0.8rem;" class="float-right text-primary">
-                            Total de Registros <strong>{{$registros = App\Usuario::where('taller_id',$taller->id)->count()}}</strong>  / de 5
-                        </span>    
-                    </h6>
-                    <h6 class="pt20 ">{{$taller->titulo}}</h6>
-                    <p>{{$taller->descripcion}}</p>  
-                    <a href="{{route('registrarse')}}" class="btn btn-outline-secondary">Regístrate</a> 
-                </div>
-            </div>
+                @endif
             @endforeach
         </div>
     </div><hr>

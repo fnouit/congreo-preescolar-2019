@@ -43,7 +43,6 @@ class RegistrarUsuarioController extends Controller
     public function talleres()
     {
         $talleres = Taller::all();
-        
         return view ('congreso-preescolar.talleres')->with(compact('talleres'));
     }
 
@@ -61,7 +60,8 @@ class RegistrarUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $registros = Usuario::where('taller_id',$request->seleccion_taller)->count();
+        // return $request;
+        // $registros = Usuario::where('taller_id',$request->seleccion_taller)->count();
 
         // return $registros;
         // return "aquí se almacena la información";
@@ -73,7 +73,8 @@ class RegistrarUsuarioController extends Controller
             'rfc.required'=>'Su RFC es necesario',
             'numero_personal.required'=>'Su número personal es necesario para el registro',
             // 'delegacion.required'=>'Es necesario saber a qué delegación perteneces ',
-            'numero_personal.unique'=>'El numero personal ya ha sido registrado'
+            'numero_personal.unique'=>'El numero personal ya ha sido registrado',
+            'seleccion_taller.required' => 'Es necesario que selecciones un taller',
         ];
         $reglas = [
             'nombre' => 'required',
@@ -81,6 +82,7 @@ class RegistrarUsuarioController extends Controller
             'correo' => 'required|unique:usuarios,correo',            
             'rfc' => 'required',
             'numero_personal'  => 'required|unique:usuarios,num_personal',
+            'seleccion_taller' => 'required',
             // 'delegacion' => 'required'             
         ];
 

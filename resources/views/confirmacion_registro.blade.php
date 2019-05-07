@@ -21,17 +21,34 @@
         <div class="container pt0 pb60">
             <div class="row mb50">
                 <div class="col-md-10 ml-auto mr-auto text-center">
-                    <h2 class="mb20 font300">Hola <span style="text-transform:uppercase;">{{$usuario->nombre}}</span></h2>
                     <p class="lead">
-                        Gracias por registrarte a la <strong>Segunda Jornada de Actividades Académicas</strong> de la Sección 56 del SNTE.<br>
-                        Te enviaremos al correo electrónico ({{ $usuario->correo }}) la información completa del evento. <br> 
-                        Lugar, fecha y algunas recomendaciones.                        
+                        Muchas gracias <strong>{{$usuario->nombre}}</strong>, nuestra meta es brindar herramientas a los docentes para mejorar su desempeño profesional y de esta manera lograr la mejora de la calidad en la educación.
                     </p>
-                    <a href=" {{ route('inicio') }} " style="margin-top:35px;box-sizing:border-box;border-radius:3px;color:#fff;display:inline-block;text-decoration:none;background-color:#ed8407;border-top:10px solid #ed8407;border-right:18px solid #ed8407;border-bottom:10px solid #ed8407;border-left:18px solid #ed8407">
-                        Terminar proceso de registro
+
+                </div>
+            </div>            
+            <div class="row mb50">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                    <a href="#" class="btn btn-outline-primary">
+                        <i class="fa fa-print fa-3x" aria-hidden="true"></i>
+                        Descarga tu FOLIO
                     </a>                    
                 </div>
-            </div><hr class="mb80">
+            </div>            
+
+
+            <div class="row mb50">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                    <a href=" {{ route('inicio') }} " style="margin-top:35px;box-sizing:border-box;border-radius:3px;color:#fff;display:inline-block;text-decoration:none;background-color:#ed8407;border-top:10px solid #ed8407;border-right:18px solid #ed8407;border-bottom:10px solid #ed8407;border-left:18px solid #ed8407">
+                        <i class="fa fa-home" aria-hidden="true"></i>                           
+                        Terminar proceso de registro
+                    </a>                                        
+                </div>
+            </div>            
+
+
+
+            <hr class="mb80">
         </div>
 
 @stop

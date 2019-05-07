@@ -38,6 +38,7 @@ class TallerController extends Controller
     {
         $taller = new Taller();
         $taller->titulo = $request->titulo;
+        $taller->ponente = strtoupper($request->ponente);
         $taller->descripcion = $request->descripcion;
 
         if ($request->hasFile('imagen_taller'))
@@ -50,7 +51,8 @@ class TallerController extends Controller
         $taller->imagen_taller = $name;
         $taller->save();
 
-        return view ('admin.talleres.index');
+        $talleres = Taller::all();
+        return view ('admin.talleres.index')->with(compact('talleres'));
     }
 
     /**
@@ -61,18 +63,19 @@ class TallerController extends Controller
      */
     public function show(Taller $taller)
     {
-        //
-    }
 
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Taller  $taller
      * @return \Illuminate\Http\Response
      */
-    public function edit(Taller $taller)
+    public function edit($id)
     {
-        //
+        $taller = Taller::find($id);
+        return view ('admin.talleres.edit')->with(compact('taller')); 
     }
 
     /**
@@ -82,9 +85,41 @@ class TallerController extends Controller
      * @param  \App\Taller  $taller
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Taller $taller)
+    public function update(Request $request, $id)
     {
-        //
+        $taller = Taller::find($id);
+        $taller->titulo = $request->titulo;
+        $taller->ponente = strtoupper($request->ponente);
+        $taller->descripcion = $request->descripcion;
+        
+        if ($request->hasFile('imagen_taller'))
+        {
+            $file = $request->file('imagen_taller');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/talleres/',$name);
+        }
+        
+        $taller->imagen_taller = $name;
+                
+        $mensaje = [
+            'titulo.required' => 'Es necesario ingresar un nombre para el taller',
+            'ponente.required'=>'Ingresa el nombre del ponente',
+            'descripcion.required'=>'Hace falta una descripcion del taller ',
+        ];
+        
+        $reglas = [
+            'titulo' => 'required',
+            'ponente' => 'required',
+            'descripcion' => 'required',                        
+        ];
+        
+        $this->validate( $request, $reglas, $mensaje );
+
+
+        $taller->save();
+
+        return redirect('/congreso-preescolar-2019/talleres');
+ 
     }
 
     /**

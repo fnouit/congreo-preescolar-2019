@@ -28,8 +28,15 @@
 
         <div class="row">
             <div class="col-sm-6 form-group">      
-                <label for="descripcion">DESCRIPCIÓN DEL TALLER</label>          
-                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+                <label for="ponente">PONENTE</label>          
+                <input class="form-control" id="ponente" name="ponente" style="text-transform: uppercase;">
+            </div>
+        </div>                           
+
+        <div class="row">
+            <div class="col-sm-6 form-group">      
+                <label for="descripcion">DESCRIPCION</label>          
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="4"></textarea>
             </div>
         </div>                           
 

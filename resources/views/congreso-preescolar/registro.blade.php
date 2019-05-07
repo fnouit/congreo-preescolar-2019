@@ -18,7 +18,7 @@
     <form action="{{ route('enviar_registro') }}" method="post">
     {{ csrf_field() }} 
 
-        <p class="lead">Selección de Taller </p>
+        <p class="lead">Selección de Taller</p>
         <div class="row">
             <div class="col-sm-12 form-group">      
                 <label for="seleccion_taller">SELECCIONA DEL LISTADO QUE A CONTINUACION TE MOSTRAMOS AL QUE DESEAS ASISTIR.</label>
@@ -26,7 +26,7 @@
                     <option value="" selected disabled hidden>TALLERES DISPONIBLES</option>    
                     @foreach($talleres as $key => $taller)    
                         {{$registro = App\Usuario::where('taller_id',$taller->id)->count()}}
-                        @if($registro <= 5)
+                        @if($registro < 3)
                             <option value="{{$taller->id}}" style="text-transform: uppercase;">Taller {{$key+1}} - {{$taller->titulo}}</option>
                         @endif
                     @endforeach                    

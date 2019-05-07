@@ -27,7 +27,7 @@
                         Congreso <span class="text-primary">Preescolar 2019</span> 
                     </h2>
                     <p class="lead">
-                        📙📚 “DESAFÍOS ACTUALES Y EL PAPEL DOCENTE EN EL NUEVO MODELO EDUCATIVO”
+                        📙📚 <br> “EDUCACIÓN SOCIOECONÓMICA EN PREESCOLAR. <br>PARADIGMA DEL SIGLO XXI”
                     </p>
                 </div>
             </div>
@@ -35,10 +35,10 @@
                 <div class="col-md-4 mb30">
                     <a href="{{route('registrarse')}}">
                         <img src="{{asset('images/img1.jpg')}}" alt="" class="img-fluid mb20">
-                        <h4>Registro al Congreso</h4>
+                        <h4>Registro general</h4>
                     </a>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penculus mus.
+                        Asiste al 2º Congreso de Preescolar que la Sección 56 del SNTE realiza para ti y conoce que se está haciendo en materia de Innovación Educativa.                    
                     </p>
                 </div>
                 <div class="col-md-4 mb30">
@@ -47,8 +47,7 @@
                         <h4>¿Cuales son los Talleres?</h4>
                     </a>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penculus mus.
-                    </p>
+                    Descripción de los 15 talleres que se impartirán brindando herramientas a los docentes para realizar mejor su desempeño profesional.                     </p>
                 </div>
                 <div class="col-md-4 mb30">
                     <a href="{{route('verificacion')}}">
@@ -56,14 +55,111 @@
                         <h4>Verifica tu registro</h4>
                     </a>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penculus mus.
+                        Consulta con tu número personal si ya te encuentra inscrito. Teclea tu número, espacios y oprime el botón buscar.
                     </p>
+                </div>
+            </div>
+        </div> 
+
+
+        <div class="container pt90 pb60">
+            <h4 class="text-center mb50 font700 h2">Conferencias</h4>
+            <div class="row align-items-center">
+                <div class="row gallery-row col-md-6 mb30">
+                    <a href="../images/talleristas/conferencia_1.jpg" class="gallery-item">
+                        <img src="images/talleristas/conferencia_1.jpg" alt="" class="img-fluid">
+                    </a>                    
+                </div>
+    
+                <div class="row gallery-row col-md-6 mb30">                    
+                    <a href="../images/talleristas/conferencia_2.jpg" class="gallery-item">
+                        <img src="images/talleristas/conferencia_2.jpg" alt="" class="img-fluid">
+                    </a>                    
                 </div>
             </div>
         </div>
 
+        
+        
+        
+        
+        
+        
+        
+
+
+<center>
+    <div class="container pb30">
+    <h4 class="text-center mb50 font700 h2">Panel de Especialistas</h4>
+        <div class="row pb80">
+            <div class="col-md-12 mb30" >
+
+                <h4 class="mb30">Percepción del nuevo modelo educativo en Preescolar </h4>
+                <div class="owl-carousel owl-theme owl-testimonials">
+                    <div class="item">
+                        <div class="testi-author">
+                            <i class="icon-user"></i>
+                        </div>
+                        <p>
+                            Emociones orientadas al aprendizaje
+                        </p>
+                        <h6>Lic. Lorenzo Gómez Lozano</h6>
+                    </div> 
+                    <div class="item">
+                        <div class="testi-author">
+                            <i class="icon-user"></i>
+                        </div>
+                        <p>
+                            Nuevo modelo educativo para preescolar
+                        </p>
+                        <h6>Lic. Amanda Cano</h6>
+                    </div> 
+                    <div class="item">
+                        <div class="testi-author">
+                            <i class="icon-user"></i>
+                        </div>
+                        <p>
+                            Modelo Educativo
+                        </p>
+                        <h6>Lic. Oralia Bonilla</h6>
+                    </div> 
+                    <div class="item">
+                        <div class="testi-author">
+                            
+                            <img src="{{asset('images\talleristas\dra.jpg')}}" class="img-circle" alt="Cinque Terre">
+                        </div>
+                        <p>
+                            Gestión escolar
+                        </p>
+                        <h6>Lic. Raymundo Trilla</h6>
+                    </div> 
+                    <div class="item">
+                        <div class="testi-author">
+                            <img src="{{asset('images\talleristas\dra.jpg')}}" class="img-circle" alt="Cinque Terre">
+
+                        </div>
+                        <p>
+                            Nuevo programa de Preescolar
+                        </p>
+                        <h6>Dra. María Teresa Meléndez Irigoyen</h6>
+                    </div> 
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+</center>
+
+
+
+
     @section('banner2')
-        <a href="{{route('taller')}}" class="btn btn-block btn-primary pt40 pb40 btn-lg">Regístrate antes del 25 de mayo y participa con nosotros en esta gran experiencia.</a>        
+        <a href="{{route('registrarse')}}" class="btn btn-block btn-primary pt40 pb40 btn-lg">Regístrate antes del 25 de mayo y participa con nosotros en esta gran experiencia.</a>        
     @endsection
 
 @stop

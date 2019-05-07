@@ -28,6 +28,8 @@ Route::middleware(['auth','admin'])->group(function()
     Route::get('/congreso-preescolar-2019/talleres','TallerController@index')->name('talleres');
     Route::get('/congreso-preescolar-2019/nuevo_taller', 'TallerController@create')->name('registrar_taller'); # página para registrar nuevo taller
     Route::post('/congreso-preescolar-2019/nuevo_taller', 'TallerController@store')->name('enviar_taller'); # almacena la información del taller
+    Route::get('/congreso-preescolar-2019/editar_taller/{id}', 'TallerController@edit')->name('editar_taller'); # página para editar taller seleccionado
+    Route::put('/congreso-preescolar-2019/editar_taller/{id}', 'TallerController@update')->name('actualizar_taller'); # página para editar taller seleccionado
 
 });
 

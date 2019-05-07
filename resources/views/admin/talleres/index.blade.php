@@ -18,7 +18,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Titulo</th>
+                            <th scope="col">Ponente</th>
                             <th scope="col">Descripción</th>
+                            <th scope="col">Configuración</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,7 +28,9 @@
                             <tr>
                                 <th scope="row">{{$key+1}}</th>
                                 <td>{{$taller->titulo}}</td>
+                                <td style="text-transform: uppercase;">{{$taller->ponente}}</td>
                                 <td>{{$taller->descripcion}}</td>
+                                <td><a href="{{route('editar_taller',[$taller->id])}}" >Editar</a></td>
                             </tr>
                         @endforeach
                     </tbody>
