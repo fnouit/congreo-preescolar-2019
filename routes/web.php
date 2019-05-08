@@ -51,7 +51,23 @@ Route::group(['prefix'=>'congreso-preescolar-2019'], function()
     Route::post('/registrarse', 'RegistrarUsuarioController@store')->name('enviar_registro'); # Almacenar la información
     Route::get('/verificacion', 'RegistrarUsuarioController@verificacion')->name('verificacion'); # Página para verificar si estas registrado
     Route::get('/buscar', 'RegistrarUsuarioController@buscar')->name('buscar'); # Buscar registro
+    Route::get('/folio/{codigo_confirmacion}', 'RegistrarUsuarioController@folio')->name('folio'); # Exportar pdf
     Route::get('/privacidad', 'RegistrarUsuarioController@privacidad')->name('privacidad'); # Página de privacidad
 });
 
 Route::get('/regiones/{id}/delegaciones','DelegacionController@delegaciones');
+
+
+# Ruta de creación de PDF
+
+Route::get('/pdf', function()
+{
+    
+    // $pdf = PDF::loadHtml('<h1>Prueba</h1>'); # Carga un HTML
+    
+    $pdf = PDF::loadView('congreso-preescolar.pdf_export'); # Carga una vista 
+    
+    
+    // return $pdf->stream(); # muestra el PDF en una ventana
+    return $pdf->download(); # descarga el PDF
+});

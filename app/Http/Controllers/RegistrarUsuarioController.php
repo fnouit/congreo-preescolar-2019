@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Usuario;
 use App\Region;
 use App\Taller;
+use PDF;
 
 class RegistrarUsuarioController extends Controller
 {
@@ -139,6 +140,22 @@ class RegistrarUsuarioController extends Controller
         $num_personal = $request->get('np');      
         $usuario = Usuario::busqueda($num_personal)->get();
         return view ('busqueda')->with(compact('usuario'));
+    }
+
+    public function folio($codigo_confirmacion)
+    {
+        $usuario = Usuario::where('codigo_confirmacion', $codigo_confirmacion)->get();
+        // $usuario = Usuario::find($codigo_confirmacion);
+        // return view ('congreso-preescolar.pdf_export')->with(compact('usuario'));
+
+    
+        $pdf = PDF::loadView('congreso-preescolar.pdf_export',['usuario' => $usuario]); # Carga una vista 
+    
+    
+        return $pdf->stream(); # muestra el PDF en una ventana
+        // return $pdf->download(); # descarga el PDF
+
+
     }
 
     public function privacidad()

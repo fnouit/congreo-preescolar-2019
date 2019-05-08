@@ -29,7 +29,7 @@
             </div>            
             <div class="row mb50">
                 <div class="col-md-6 ml-auto mr-auto text-center">
-                    <a href="#" class="btn btn-outline-primary">
+                    <a href="{{route('folio',[$usuario->codigo_confirmacion])}}" class="btn btn-outline-primary">
                         <i class="fa fa-print fa-3x" aria-hidden="true"></i>
                         Descarga tu FOLIO
                     </a>                    

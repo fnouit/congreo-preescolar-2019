@@ -11,4 +11,10 @@ class Taller extends Model
         'descripcion',
         'imagen_taller'
     ];  
+
+    public function usuarios()
+    {
+        return $this->hasMany('App\Usuario');
+    }
+  
 }

@@ -24,6 +24,13 @@ class Usuario extends Model
         'codigo_confirmacion'          
     ];  
 
+
+    public function taller()
+    {
+        return $this->belongsTo('App\Taller');
+    }  
+
+
     // Query Scope
 
     public function scopeBusqueda($query,$num_personal='')
