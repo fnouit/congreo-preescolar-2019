@@ -20,6 +20,7 @@
                             <th scope="col">Titulo</th>
                             <th scope="col">Ponente</th>
                             <th scope="col">Descripción</th>
+                            <th scope="col">Limite</th>                            
                             <th scope="col">Configuración</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                                 <td>{{$taller->titulo}}</td>
                                 <td style="text-transform: uppercase;">{{$taller->ponente}}</td>
                                 <td>{{$taller->descripcion}}</td>
+                                <td>{{$taller->limite}}</td>
                                 <td><a href="{{route('editar_taller',[$taller->id])}}" >Editar</a></td>
                             </tr>
                         @endforeach

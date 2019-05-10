@@ -42,6 +42,13 @@
         </div>                           
 
         <div class="row">
+            <div class="col-sm-6 form-group">      
+                <label for="descripcion">CUPO DE PERSONAS</label>          
+                <input class="form-control" id="limite" name="limite" value="{{ old('limite', $taller->limite) }}">
+            </div>
+        </div>                           
+
+        <div class="row">
             <div class="col-sm-6 form-group custom-file ">
                 <input type="file" class="custom-file-input" id="imagen_taller" name="imagen_taller">
                 <label class="custom-file-label" for="imagen_taller">SELECCIONA UNA IMAGEN</label>

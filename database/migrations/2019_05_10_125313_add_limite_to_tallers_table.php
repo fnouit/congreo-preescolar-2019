@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPonenteToTallersTable extends Migration
+class AddLimiteToTallersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddPonenteToTallersTable extends Migration
     public function up()
     {
         Schema::table('tallers', function (Blueprint $table) {
-            $table->string('ponente')->after('titulo');
+            $table->integer('limite')->after('descripcion');
         });
     }
 

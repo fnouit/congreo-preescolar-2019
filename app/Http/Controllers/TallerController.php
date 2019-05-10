@@ -40,6 +40,7 @@ class TallerController extends Controller
         $taller->titulo = $request->titulo;
         $taller->ponente = strtoupper($request->ponente);
         $taller->descripcion = $request->descripcion;
+        $taller->limite = $request->limite;
 
         if ($request->hasFile('imagen_taller'))
         {
@@ -91,6 +92,8 @@ class TallerController extends Controller
         $taller->titulo = $request->titulo;
         $taller->ponente = strtoupper($request->ponente);
         $taller->descripcion = $request->descripcion;
+        $taller->limite = $request->limite;
+
         
         if ($request->hasFile('imagen_taller'))
         {
@@ -99,7 +102,7 @@ class TallerController extends Controller
             $file->move(public_path().'/images/talleres/',$name);
         }
         
-        $taller->imagen_taller = $name;
+        // $taller->imagen_taller = $name;
                 
         $mensaje = [
             'titulo.required' => 'Es necesario ingresar un nombre para el taller',

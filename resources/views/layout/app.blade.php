@@ -23,6 +23,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('revolution/css/navigation.css')}}">
         <link href="{{ asset('css/style.css')}}" rel="stylesheet">
         
+        <script src="{{ asset('js/formulario.js') }}" defer></script>
         
 
 
