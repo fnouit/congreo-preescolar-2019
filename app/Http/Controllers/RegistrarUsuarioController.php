@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuario;
 use App\Region;
+use App\Delegacion;
 use App\Taller;
 use PDF;
 
@@ -85,7 +86,8 @@ class RegistrarUsuarioController extends Controller
             $usuario->facebook = "/".$request->facebook;
             $usuario->twitter = "@".$request->twitter;
 
-            $usuario->delegacion = strtoupper($request->delegacion);
+            // $usuario->delegacion = strtoupper($request->delegacion);
+            $usuario->delegacion_id = $request->delegacion;
             $usuario->num_personal = $request->numero_personal;
             $usuario->zona_e = strtoupper($request->zona_escolar);
             $usuario->clave_ct = strtoupper($request->ct);
@@ -93,6 +95,7 @@ class RegistrarUsuarioController extends Controller
             $usuario->agremiado = $request->agremiado;
 
             $usuario->codigo_confirmacion = strtoupper(str_random(8));
+            $usuario->slug = $usuario->codigo_confirmacion;
 
 
             
@@ -131,6 +134,7 @@ class RegistrarUsuarioController extends Controller
             $usuario->agremiado = $request->no_agremiado;
 
             $usuario->codigo_confirmacion = strtoupper(str_random(8));
+            $usuario->slug = $usuario->codigo_confirmacion;
 
            // return $usuario;
             $usuario->save();
@@ -143,6 +147,7 @@ class RegistrarUsuarioController extends Controller
 
     public function actualizar_usuario_taller(Request $request, $id)
     {
+
 
         $mensaje = [
             'seleccion_taller.required' => 'Debes seleccionar al menos un taller de la lista.',
@@ -159,6 +164,8 @@ class RegistrarUsuarioController extends Controller
         
         // return $usuario; 
         $usuario->save();
+
+        
         
         return view('congreso-preescolar.confirmar_registro')->with(compact('usuario'));
 

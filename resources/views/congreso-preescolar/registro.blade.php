@@ -211,7 +211,7 @@
 
             $('#delegacion').append('<option disabled selected>SELECCIONA DELEGACIÓN</option>');
             for (var i = 0; i < data.length; ++i)
-                $('#delegacion').append('<option value="'+ data[i].numero +'">' + data[i].numero + " - " +data[i].sede +'</option>');
+                $('#delegacion').append('<option value="'+ data[i].id +'">' + data[i].numero + " - " +data[i].sede +'</option>');
         return;
         });
     }

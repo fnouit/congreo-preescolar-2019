@@ -74,3 +74,6 @@ Route::get('/pdf', function()
     // return $pdf->stream(); # muestra el PDF en una ventana
     return $pdf->download(); # descarga el PDF
 });;
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

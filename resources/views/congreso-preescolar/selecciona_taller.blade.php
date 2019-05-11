@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('titulo','Registro Confirmado')
+@section('titulo','Selecciona Taller')
 @section('container')
 
     @if ($errors->any())

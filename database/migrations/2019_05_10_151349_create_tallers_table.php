@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDelegacionsTable extends Migration
+class CreateTallersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateDelegacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('delegacions', function (Blueprint $table) {
+        Schema::create('tallers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('numero');
-            $table->string('sede', 128);
-            $table->integer('region_id')->unsigned();
-            $table->foreign('region_id')->references('id')->on('regions');
+            $table->string('titulo',120);
+            $table->string('ponente');
+            $table->longText('descripcion');
+            $table->string('imagen_taller');
+            $table->integer('limite');
+
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateDelegacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('delegacions');
+        Schema::dropIfExists('tallers');
     }
 }

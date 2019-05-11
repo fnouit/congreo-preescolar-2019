@@ -19,7 +19,7 @@
 
                             <tr>
                                 <th scope="row">USUARIO: </th>
-                                <td>{{$usuario->nombre}} {{$usuario->apellido_p}} {{$usuario->apellido_m}}</td>
+                                <td>{{$usuario->apellido_p}} {{$usuario->apellido_m}} {{$usuario->nombre}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">RFC: </th>
@@ -28,24 +28,10 @@
                             <tr>
                                 <th scope="row">TALLER AL QUE DESEAS ASISTIR: </th>
                                 <td style="text-transform: uppercase;">TALLER {{$usuario->taller->id}} <br> {{$usuario->taller->titulo}}</td>
-                            </tr>
+                            </tr>                                           
                             <tr>
-                                <th scope="row">CORREO ELECTRÓNICO: </th>
-                                <td>{{$usuario->correo}}</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">DELEGACION: </th>
-                                <td>{{$usuario->delegacion}}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">CENTRO DE TRABAJO: </th>
-                                <td>{{$usuario->clave_ct}}</td>
-                            </tr>                            
-                            <tr>
-                                <th scope="col" colspan="2">LUNES 10 DE JUNIO DE 2019, 09:00 hrs. </th>
+                                <th scope="row">FECHA DEL EVENTO: </th>
+                                <td>LUNES 10 DE JUNIO DE 2019, 09:00 hrs.</td>
                             </tr>
                         </tbody>
                     </table>

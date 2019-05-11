@@ -14,8 +14,16 @@ class Delegacion extends Model
 
     protected $table = 'delegacions';
 
+    
     public function region()
     {
         return $this->belongsTo(Region::class);
-    }    
+    }
+    
+    
+    public function usuarios()
+    {
+        return $this->hasMany(Usuario::class);
+    }
+
 }

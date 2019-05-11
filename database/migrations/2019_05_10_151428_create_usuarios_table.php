@@ -29,7 +29,16 @@ class CreateUsuariosTable extends Migration
             $table->string('zona_e')->nullable();
             $table->string('clave_ct')->nullable();    
             $table->boolean('confirmado')->default(0);
-            $table->string('codigo_confirmacion')->nullable();              
+            $table->string('codigo_confirmacion')->nullable();     
+            $table->string('agremiado',128)->nullable();
+            $table->string('delegacion2',128)->nullable();
+
+            $table->integer('taller_id')->unsigned()->nullable();
+            $table->foreign('taller_id')->references('id')->on('tallers');            
+
+            $table->integer('delegacion_id')->unsigned()->nullable();
+            $table->foreign('delegacion_id')->references('id')->on('delegacions');                        
+
             $table->timestamps();
         });
     }

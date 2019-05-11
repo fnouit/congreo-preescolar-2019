@@ -26,27 +26,15 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">NOMBRE COMPLETO: </th>
-                                    <td>{{$u->nombre}} {{$u->apellido_p}} {{$u->apellido_m}}</td>
+                                    <td>{{$u->apellido_p}} {{$u->apellido_m}} {{$u->nombre}} </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">RFC: </th>
                                     <td>{{$u->rfc}}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">CORREO ELECTRÓNICO: </th>
-                                    <td>{{$u->correo}}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">DELEGACIÓN: </th>
-                                    <td>{{$u->delegacion}}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">CENTRO DE TRABAJO: </th>
-                                    <td>{{$u->clave_ct}}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="col" colspan="2">LUNES 10 DE JUNIO DE 2019, 09:00 hrs. </th>
-                                    <td>{{$u->clave_ct}}</td>
+                                    <th scope="row">FECHA DEL EVENTO: </th>
+                                    <td>LUNES 10 DE JUNIO DE 2019, 09:00 hrs.</td>
                                 </tr>
                             </tbody>
                         </table> <br>

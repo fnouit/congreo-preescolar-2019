@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Usuario extends Model
 {
     protected $fillable = [
+        'id',
         'nombre',
         'apellido_p',
         'apellido_m',
@@ -21,14 +23,31 @@ class Usuario extends Model
         'zona_e',
         'clave_ct',    
         'confirmado',
-        'codigo_confirmacion'          
+        'codigo_confirmacion',
+        'agremiado',
+        'slug',
+        'delegacion_id',
+        'taller_id',
     ];  
 
+    protected $table = 'usuarios';
 
     public function taller()
     {
-        return $this->belongsTo('App\Taller');
+        return $this->belongsTo(Taller::class);
     }  
+
+    public function deleg()
+    {
+        return $this->belongsTo('App\Delegacion','delegacion_id', 'id');
+        // return $this->belongsTo(Delegacion::class);
+    }
+
+
+
+
+
+
 
 
     // Query Scope

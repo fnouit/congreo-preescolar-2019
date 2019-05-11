@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTallersTable extends Migration
+class CreateDelegacionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateTallersTable extends Migration
      */
     public function up()
     {
-        Schema::create('tallers', function (Blueprint $table) {
+        Schema::create('delegacions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo',128);
-            $table->longText('descripcion');
-            $table->string('imagen_taller');
+            $table->string('numero');
+            $table->string('sede');            
+            $table->integer('region_id')->unsigned();
+            $table->foreign('region_id')->references('id')->on('regions');
+            
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateTallersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tallers');
+        Schema::dropIfExists('delegacions');
     }
 }

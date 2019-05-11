@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddLimiteToTallersTable extends Migration
+class AddSlugsToUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddLimiteToTallersTable extends Migration
      */
     public function up()
     {
-        Schema::table('tallers', function (Blueprint $table) {
-            $table->integer('limite')->after('descripcion');
+        Schema::table('usuarios', function (Blueprint $table) {
+            $table->string('slug')->after('delegacion_id')->unique();            
         });
     }
 
@@ -25,8 +25,8 @@ class AddLimiteToTallersTable extends Migration
      */
     public function down()
     {
-        Schema::table('tallers', function (Blueprint $table) {
-            //
+        Schema::table('usuarios', function (Blueprint $table) {
+            $table->dropColumn('slug');
         });
     }
 }
