@@ -27,7 +27,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">TALLER AL QUE DESEAS ASISTIR: </th>
-                                <td style="text-transform: uppercase;">TALLER {{$usuario->taller->id}} <br> {{$usuario->taller->titulo}}</td>
+                                <td style="text-transform: uppercase;">TALLER <br> {{$usuario->taller->titulo}}</td>
                             </tr>                                           
                             <tr>
                                 <th scope="row">FECHA DEL EVENTO: </th>

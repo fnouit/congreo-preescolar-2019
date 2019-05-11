@@ -24,13 +24,13 @@
                             <div class="col-sm-12 form-group">      
                                 <select id="seleccion_taller" name="seleccion_taller" class="form-control" required>                            
                                     <option value="" selected disabled hidden>TALLERES DISPONIBLES</option>    
-                                    @foreach($talleres as $key => $taller)    
-                                        {{$registro = App\Usuario::where('taller_id',$taller->id)->count()}}
-                                        @if($registro < 3)
-                                            <option value="{{$taller->id}}" style="text-transform: uppercase;">Taller {{$key+1}} - {{$taller->titulo}}</option>
+                                    @foreach($talleres as $key => $taller) 
+                                        {{$users = App\Usuario::where('taller_id',$taller->id)->count()}}   
+                                        @if($users < $taller->limite)
+                                            <option value="{{$taller->id}}" style="text-transform: uppercase;">{{$taller->titulo}}</option>
                                         @endif
-                                    @endforeach      
-                                    <option value="sin_taller">SIN TALLER DISPONIBLE</option>              
+
+                                    @endforeach                                                 
                                 </select>
                                 <span class="pt20">Si el taller no se encuentra es por que ha superado el limite de registros. </span>
                             </div>

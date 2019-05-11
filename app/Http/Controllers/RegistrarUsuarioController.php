@@ -147,9 +147,28 @@ class RegistrarUsuarioController extends Controller
 
     public function actualizar_usuario_taller(Request $request, $id)
     {
+        
+        $usuario = Usuario::findorfail($id);     
 
+        $users = Usuario::where('taller_id',$request->seleccion_taller)->count();
+        
+        $taller = Taller::find($request->seleccion_taller);
 
-        $mensaje = [
+        if ($users < $taller->limite) {
+            $usuario->taller_id = $request->seleccion_taller;
+            $usuario->save();                        
+        } else {
+            $usuario->taller_id = 12;
+            $usuario->save();                          
+        }
+        
+        return view('congreso-preescolar.confirmar_registro')->with(compact('usuario','users','taller'));
+
+        // return $users;
+        // return $taller->limite;
+        
+
+/*         $mensaje = [
             'seleccion_taller.required' => 'Debes seleccionar al menos un taller de la lista.',
         ];
         $reglas = [
@@ -159,15 +178,17 @@ class RegistrarUsuarioController extends Controller
         $this->validate($request, $reglas, $mensaje);
 
 
-        $usuario = Usuario::find($id); 
+        $usuario = Usuario::find($slug); 
         $usuario->taller_id = $request->seleccion_taller;
         
-        // return $usuario; 
+
         $usuario->save();
 
         
         
         return view('congreso-preescolar.confirmar_registro')->with(compact('usuario'));
+ */
+
 
     }
 
@@ -197,9 +218,17 @@ class RegistrarUsuarioController extends Controller
 
     public function buscar(Request $request)
     {
-        $num_personal = $request->get('np');      
-        $usuario = Usuario::busqueda($num_personal)->get();
-        return view ('busqueda')->with(compact('usuario'));
+        // $num_personal = $request->get('np');      
+        // $usuario = Usuario::busqueda($num_personal)->get();
+        // return view ('busqueda')->with(compact('usuario'));
+
+        $taller = Taller::all();
+        $correo = $request->get('correo');      
+        $usuario = Usuario::busqueda($correo)->get();
+        return view ('congreso-preescolar.busqueda')->with(compact('usuario','taller'));        
+        
+        // return view('congreso-preescolar.confirmar_registro')->with(compact('usuario'));
+
     }
 
     public function folio($codigo_confirmacion)

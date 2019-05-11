@@ -8,16 +8,16 @@
                 <img src="{{asset('images/about.png')}}" alt="" class="img-fluid">
             </div>
             <div class="col-md-6 offset-md-1 mb30">
-                <h3 class="font300 mb20 h2">Verifica si ya te has  <span class="text-primary">registrado</span></h3>
-
-                <p>
-                    Si ya te regístrate y deseas verificar tu información por favor ingresa tu Número de personal.
-                </p><br>
+                <h3 class="font300 mb20 h2">Verifica tu  <span class="text-primary">Información</span></h3>
+                <div class="lead">
+                    Por favor ingresa el corre electrónico con el que te registraste
+                </div>
+<br>
                 <form action="{{route('buscar')}}" method="get">
                 
                     <div class="row">
                         <div class="col-sm-12">
-                            <input type="tel" name="np" class="form-control form-control-lg mb20" placeholder="Ingresa tu Número de Personal">
+                            <input type="email" name="correo" class="form-control form-control-lg mb20" placeholder="Ingresa tu correo electrónico">
                         </div>
                         <div class="col-md-6">
                             <span><small>Mostramos solo la información solicitada</small></span>

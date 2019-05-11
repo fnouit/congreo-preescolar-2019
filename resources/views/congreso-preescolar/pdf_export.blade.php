@@ -43,7 +43,7 @@
 
 
                     <strong>TALLER AL QUE ASISTIRÁS</strong> <br>
-                    <p style="text-transform: uppercase; font-size:200%;">TALLER {{$u->taller->id}} <br> {{$u->taller->titulo}}</p> <br> <br>
+                    <p style="text-transform: uppercase; font-size:200%;">TALLER <br> {{$u->taller->titulo}}</p> <br> <br>
                     <p class="lead">
                         Gracias por registrarte, por favor ten a la mano tu código de verificación y muestralo el día del evento. <br>
                     </p>

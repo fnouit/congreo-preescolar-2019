@@ -52,7 +52,7 @@ class Usuario extends Model
 
     // Query Scope
 
-    public function scopeBusqueda($query,$num_personal='')
+    public function scopeBusqueda($query,$correo='')
     {
 /*         if($num_personal)
             return $query->where('num_personal', $num_personal);
@@ -60,6 +60,11 @@ class Usuario extends Model
             return "SIN REGISTRO";
         }
  */            
-        return $query->where('num_personal', $num_personal);
+        // return $query->where('num_personal', $num_personal);
+        if (trim($correo) != "")
+        {
+            return $query->where('correo', $correo);
+        }
     }
+  
 }

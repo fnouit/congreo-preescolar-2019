@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 mb30">
+                <div class="col-md-4 mb30">
                     <a href="{{route('registrarse')}}">
                         <img src="{{asset('images/img1.jpg')}}" alt="" class="img-fluid mb20">
                         <h4>Registro al Congreso</h4>
@@ -41,14 +41,7 @@
                         Asiste al 2º Congreso de Preescolar que la Sección 56 del SNTE realiza para ti y conoce que se está haciendo en materia de Innovación Educativa.                    
                     </p>
                 </div>
-                <div class="col-md-3 mb30">
-                    <a href="#">
-                        <img src="{{asset('images/img4.jpg')}}" alt="" class="img-fluid mb20">
-                        <h4>Selecciona un Taller</h4>
-                    </a>
-                    <p>Selecciona el taller al que deseas asistir recuerda que hay un cupo limitado de 70 personas por taller.</p>
-                </div>
-                <div class="col-md-3 mb30">
+                <div class="col-md-4 mb30">
                     <a href="{{route('verificacion')}}">
                         <img src="{{asset('images/img4.jpg')}}" alt="" class="img-fluid mb20">
                         <h4>Verifica tu FOLIO</h4>
@@ -57,7 +50,7 @@
                         Consulta con tu número personal si ya te encuentra inscrito. Teclea tu número, espacios y oprime el botón buscar.
                     </p>
                 </div>
-                <div class="col-md-3 mb30">
+                <div class="col-md-4 mb30">
                     <a href="{{route('mostrar_talleres')}}">
                         <img src="{{asset('images/img5.jpg')}}" alt="" class="img-fluid mb20">
                         <h4>¿Cuales son los Talleres?</h4>
