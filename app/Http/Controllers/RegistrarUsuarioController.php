@@ -97,8 +97,10 @@ class RegistrarUsuarioController extends Controller
             $usuario->codigo_confirmacion = strtoupper(str_random(8));
             $usuario->slug = $usuario->codigo_confirmacion;
 
+            $numero_delegacion = Delegacion::find($request->delegacion);
+            $usuario->delegacion = $numero_delegacion->numero." - ".$numero_delegacion->sede;
+                        
 
-            
             $usuario->save();
 
             

@@ -4,8 +4,6 @@
 
     <div class="container pt20 pb60">
         <h3 class="font300 mb20  h2" align="center"><strong><span class="text-primary">Talleres</span></strong></h3>
-        <p class="lead " align="center">El registro a los taller tienen un cupo máximo de 60 personas.</p>
-
         <div class="row">
             @foreach($talleres as $key => $taller) 
                 @if ( $taller != $loop->last )
@@ -17,12 +15,12 @@
                                 </a>                    
                             </div>
                             <h6 class="pt20 mb10">
-                                Taller {{$key+1}}
+                                
                                 <span style="color:#FFA500; font-size: 0.8rem;" class="float-right text-primary">
                                     Total de Registros <strong>{{$registros = App\Usuario::where('taller_id',$taller->id)->count()}}</strong>  / de {{$taller->limite}}
                                 </span>    
                             </h6>
-                            <h6 class="pt20 ">Taller {{$taller->titulo}}</h6>
+                            <h6 class="pt20 ">{{$taller->titulo}}</h6>
                             <p  style="text-transform: uppercase;">{{$taller->ponente}} </p>                              
                         </div>
                     </div>

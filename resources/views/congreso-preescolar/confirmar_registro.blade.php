@@ -22,8 +22,8 @@
                                 <td>{{$usuario->apellido_p}} {{$usuario->apellido_m}} {{$usuario->nombre}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">RFC: </th>
-                                <td>{{$usuario->rfc}}</td>
+                                <th scope="row">DELEGACION: </th>
+                                <td>{{$usuario->delegacion}}</td>
                             </tr>
                             <tr>
                                 <th scope="row">TALLER AL QUE DESEAS ASISTIR: </th>

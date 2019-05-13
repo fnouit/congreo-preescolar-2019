@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Usuario;
+use App\Delegacion;
 use App\Exports\UsuariosExport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -18,7 +19,8 @@ class UsuarioController extends Controller
     public function index()
     {
         $usuarios = Usuario::paginate(15);
-        return view ('admin.index')->with(compact('usuarios'));
+        $delegaciones = Delegacion::all();
+        return view ('admin.index')->with(compact('usuarios','delegaciones'));
     }
 
     /**

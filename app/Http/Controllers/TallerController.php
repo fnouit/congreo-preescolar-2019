@@ -89,13 +89,12 @@ class TallerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request;
         $taller = Taller::find($id);
         $taller->titulo = $request->titulo;
         $taller->ponente = strtoupper($request->ponente);
         $taller->descripcion = $request->descripcion;
         $taller->limite = $request->limite;
-
+        
         
         if ($request->hasFile('imagen_taller'))
         {
@@ -104,8 +103,9 @@ class TallerController extends Controller
             $file->move(public_path().'/images/talleres/',$name);
         }
         
-        // $taller->imagen_taller = $name;
-                
+        $taller->imagen_taller = $name;
+        
+        // return $taller;
         $mensaje = [
             'titulo.required' => 'Es necesario ingresar un nombre para el taller',
             'ponente.required'=>'Ingresa el nombre del ponente',

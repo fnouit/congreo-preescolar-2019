@@ -17,7 +17,7 @@ Auth::routes();
 // Administrador
 Route::middleware(['auth','admin'])->group(function()
 {
-    Route::get('/home', 'Admin\UsuarioController@index')->name('home');
+    Route::get('/inicio', 'Admin\UsuarioController@index')->name('inicio');
     Route::get('/usuario/{id}','Admin\UsuarioController@show')->name('usuario');
     Route::get('/usuario/{id}/editar','Admin\UsuarioController@edit')->name('mostrar'); 
     Route::put('usuario/{id}/editar','Admin\UsuarioController@update')->name('actualizar');

@@ -45,9 +45,18 @@
                         <th scope="col">NO.</th>
                         <th scope="col" colspan="3">NOMBRE</th>
                         <th scope="col">CORREO</th>
+                        <th scope="col">TITULO TALLER</th>
+                        <th scope="col">GÉNERO</th>
+                        <th scope="col">RFC</th>
+                        <th scope="col">TELÉFONO</th>
+                        <th scope="col">FACEBOOK</th>
+                        <th scope="col">TWITTER</th>
+
                         <th scope="col">NÚMERO PERSONAL</th>
                         <th scope="col">DELEGACIÓN</th>
-                        <th scope="col">CÓDIGO</th>
+                        <th scope="col">ZONA ESCOLAR</th>
+                        <th scope="col">CENTRO DE TRABAJO</th>
+                        <th scope="col">AGREMIADO</th>
                         <th scope="col">EDICIÓN</th>
                     </tr>
                 </thead>
@@ -57,9 +66,19 @@
                                 <td> {{ $key+1 }} </td>
                                 <td colspan="3" style="text-transform: uppercase;"> {{ $usuario->nombre }} {{ $usuario->apellido_p }} {{ $usuario->apellido_m }}</td>
                                 <td> {{ $usuario->correo}} </td>
+                                <td style="text-transform: uppercase;"> {{$usuario->taller->titulo}} </td>
+                                <td style="text-transform: uppercase;"> {{$usuario->genero}} </td>
+                                <td style="text-transform: uppercase;"> {{$usuario->rfc}} </td>
+                                <td style="text-transform: uppercase;"> {{$usuario->telefono}} </td>
+                                <td style="text-transform: uppercase;"> {{$usuario->facebook}} </td>
+                                <td style="text-transform: uppercase;"> {{$usuario->twitter}} </td>
+
                                 <td style="text-transform: uppercase;"> {{ $usuario->num_personal }} </td>
                                 <td style="text-transform: uppercase;"> {{ $usuario->delegacion }} </td>
-                                <td style="text-transform: uppercase;"> {{ $usuario->codigo_confirmacion }} </td>
+                                <td style="text-transform: uppercase;"> {{ $usuario->zona_e }} </td>
+                                <td style="text-transform: uppercase;"> {{ $usuario->clave_ct }} </td>
+                                <td style="text-transform: uppercase;"> {{ $usuario->agremiado }} </td>
+
                                 <td class="text-center"> <a href=" {{ url('/usuario/'.$usuario->id) }}"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> </a></td>
                             </tr>
                         @endforeach

@@ -29,8 +29,8 @@
                                     <td>{{$u->apellido_p}} {{$u->apellido_m}} {{$u->nombre}} </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">RFC: </th>
-                                    <td>{{$u->rfc}}</td>
+                                    <th scope="row">DELEGACION: </th>
+                                    <td>{{$u->delegacion}}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">FECHA DEL EVENTO: </th>
