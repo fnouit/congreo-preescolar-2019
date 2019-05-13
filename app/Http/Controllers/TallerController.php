@@ -36,6 +36,7 @@ class TallerController extends Controller
      */
     public function store(Request $request)
     {
+        return $request;
         $taller = new Taller();
         $taller->titulo = $request->titulo;
         $taller->ponente = strtoupper($request->ponente);
@@ -88,6 +89,7 @@ class TallerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        return $request;
         $taller = Taller::find($id);
         $taller->titulo = $request->titulo;
         $taller->ponente = strtoupper($request->ponente);
